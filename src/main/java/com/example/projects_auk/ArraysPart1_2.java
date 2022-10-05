@@ -82,7 +82,7 @@ public class ArraysPart1_2 {
     }
 
     public static boolean inGame() {
-        System.out.println("Do you want to continue? (1 = Yes, 2 = No) :");
+        System.out.println("Do you want to continue? (1 = Yes, 2 = No):");
         int wannaplay = userIn();
         if (wannaplay == 1)
         {
