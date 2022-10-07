@@ -6,15 +6,15 @@ import java.util.Random;
 public class ArraysPart1_2 {
     public static void main(String[] args) {
         printNumbers(5);
-        while (inGame()) {
+        while (isInGame()) {
             System.out.println("Hi! Please, enter number of elements you want:");
-            int elementsNum = userIn();
+            int elementsNum = getUserInput();
             System.out.println("Do you want to fill an array by yourself? (1 = Yes, 2 = No)");
-            int generateHimself = userIn();
+            int generateHimself = getUserInput();
             if (generateHimself == 1) {
-                bubbleSort(inputArray(elementsNum)); //User fills an array by him/herself
+                bubbleSort(getInputArray(elementsNum)); //User fills an array by him/herself
             } else {
-                bubbleSort(randArray(elementsNum)); //Array fills by random values
+                bubbleSort(getRandArray(elementsNum)); //Array fills by random values
             }
         }
     }
@@ -27,7 +27,7 @@ public class ArraysPart1_2 {
     }
 
     //1.2 Array of given length with random values
-    public static int[] randArray(int arrSize) {
+    public static int[] getRandArray(int arrSize) {
         int[] array = {};
         array = new int[arrSize]; //size of array from users input
         Random ran = new Random();
@@ -40,13 +40,13 @@ public class ArraysPart1_2 {
     }
 
     //1.3 Array of given length with given values
-    public static int[] inputArray(int arrSize) {
+    public static int[] getInputArray(int arrSize) {
         int[] array = new int[arrSize];
         int arrlength = array.length;
         for (int i = 0; i < arrlength; i++) {
             System.out.println("Enter value that you want to add to your array" +
                     "\n you've got " + (arrlength - i) + " elements left:");
-            array[i] = userIn();
+            array[i] = getUserInput();
         }
         System.out.println("Your array looks like this:\n");
         arrayOutput(array);
@@ -76,14 +76,14 @@ public class ArraysPart1_2 {
         arrayOutput(inputArray);
     }
 
-    public static int userIn() {
+    public static int getUserInput() {
         Scanner in = new Scanner(System.in);
         return in.nextInt();
     }
 
-    public static boolean inGame() {
+    public static boolean isInGame() {
         System.out.println("Do you want to continue? (1 = Yes, 2 = No):");
-        int wannaplay = userIn();
+        int wannaplay = getUserInput();
         if (wannaplay == 1)
         {
             System.out.println("Okay, lets do it one more time");
